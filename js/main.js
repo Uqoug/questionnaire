@@ -7,7 +7,16 @@ requirejs.config({
 
 requirejs(["jquery"], function ($) {
     $(".del").on("click", function() {
-        $(".box").add(".submitbox").addClass("active1");
-        $(".shadow").addClass("active2");
+    	var $el = $(this);
+    	console.log($el);
+    	$(".submitbox").addClass("active");
+    	$(".btn-cancel").on("click", function() {
+    		$(".submitbox").removeClass("active");
+    	})
+    	$(".btn-submit").on("click", function() {
+    		console.log($el.parents(".listitem"));
+    		$el.parents("li").remove();
+    		$(".submitbox").removeClass("active");
+    	})
     })
 })

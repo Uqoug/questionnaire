@@ -33,14 +33,16 @@ nav a:nth-of-type(1) {
     border-radius: 10px;
 }
 .paperlist li {
-    height: 40px;
+    height: 50px;
     width: 100%;
     line-height: 40px;
     list-style: none;
     display: flex;
+    position: relative;
+    border-bottom: 1px solid #aaa;
 }
-.paperlist li~li {
-    border-top: 1px solid #aaa;
+.paperlist .listitem:hover {
+    background-color: #fcf0e5;
 }
 .listheader > span {
     display: inline-block;
@@ -48,6 +50,9 @@ nav a:nth-of-type(1) {
     font-weight: bold;
     font-size: 18px;
     flex: 1;
+}
+.listheader > span:nth-of-type(1) {
+    flex: 1.5;
 }
 .listheader a {
     display: inline-block;
@@ -64,9 +69,16 @@ nav a:nth-of-type(1) {
     display: inline-block;
     text-align: center;
     flex: 1;
+    line-height: 20px;
+    margin-top: 15px;
+}
+.listitem > span:nth-of-type(1) {
+    flex: 1.5;
+    overflow: hidden;
 }
 .listitem .select {
     position: absolute;
+    top: 18px;
 }
 .listitem .empty {
     flex: 1;
@@ -77,7 +89,7 @@ nav a:nth-of-type(1) {
     display: flex;
 }
 .btn-wraper button {
-    margin: 5px 2px;
+    margin: 12px 2px;
     background-color: #aaa;
     outline: none;
     border: none;
@@ -93,34 +105,29 @@ nav a:nth-of-type(1) {
 .btn-wraper button:hover {
     background-color: #ee7419;
 }
-
+.select-all {
+    margin-top: 30px;
+}
+.select-all span {
+    font-size: 18px;
+}
 /*submitbox*/
 .submitbox{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: -100;
+    display: none;
 }
 .submitbox .box {
     background-color: #fff;
     width: 300px;
     height: 180px;
-    position: absolute;
+    position: fixed;
     margin-left: -150px;
     left: 50%;
     margin-top: -100px;
     top: 50%;
     box-shadow: 2px 2px 5px rgba(100,100,100,.3);
     border-radius: 8px;
-    -webkit-transition: all .7s ease;
-    -moz-transition: all .7s ease;
-    -ms-transition: all .7s ease;
-    -o-transition: all .7s ease;
-    transition: all .7s ease;
-    z-index: -99;
-    opacity: 0;
+    opacity: 1;
+    z-index: 100;
 }
 .box .tip {
     background-color: #ee7419;
@@ -151,25 +158,14 @@ nav a:nth-of-type(1) {
     margin-left: 100px;
 }
 .submitbox .shadow {
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     top: 0;
     bottom: 0;
     background-color: rgba(100,100,100,.2);
-    -webkit-transition: all .7s ease;
-    -moz-transition: all .7s ease;
-    -ms-transition: all .7s ease;
-    -o-transition: all .7s ease;
-    transition: all .7s ease;
-    opacity: 0;
-    z-index: -100;
+    z-index: 99;
 }
-.submitbox .active1 {
-    opacity: 1;
-    z-index: 10;
-}
-.submitbox .active2 {
-    opacity: 1;
-    z-index: 9;
+.active {
+    display: block;
 }
