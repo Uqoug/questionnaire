@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>问卷</title>
+    <link rel="stylesheet" href="style/homepage.css">
+</head>
+<body>
+    <footer>
+        <nav>
+            <a href="#"><span>问卷管理</span></a>
+            <a href="#"><span>我的问卷</span></a>
+        </nav>
+    </footer>
+
+    <section id="contain">
+        <ul class="paperlist">
+            <li class="listheader">
+                <span>标题</span>
+                <span>时间</span>
+                <span>状态</span>
+                <span>操作</span>
+                <a href="#">+新建问卷</a>
+            </li>
+            <li class="listitem">
+                <input class="select" type="checkbox">
+                <span>这是我的第一份问卷</span>
+                <span>2016-00-00 00:00:00</span>
+                <span>发布中</span>
+                <div class="btn-wraper">
+                    <button>编辑</button>
+                    <button class="del">删除</button>
+                    <button>查看数据</button>
+                </div>
+                <div class="empty"></div>
+            </li>
+            <li class="listitem">
+                <input class="select" type="checkbox">
+                <span>这是我的第一份问卷</span>
+                <span>2016-00-00 00:00:00</span>
+                <span>发布中</span>
+                <div class="btn-wraper">
+                    <button>编辑</button>
+                    <button class="del">删除</button>
+                    <button>查看数据</button>
+                </div>
+                <div class="empty"></div>
+            </li>
+            <li class="listitem">
+                <input class="select" type="checkbox">
+                <span>这是我的第一份问卷</span>
+                <span>2016-00-00 00:00:00</span>
+                <span>发布中</span>
+                <div class="btn-wraper">
+                    <button>编辑</button>
+                    <button class="del">删除</button>
+                    <button>查看数据</button>
+                </div>
+                <div class="empty"></div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="submitbox">
+        <div class="box">
+            <p class="tip">提示</p>
+            <p class="submittext">确认要删除问卷吗？</p>
+            <button class="btn-submit">确认</button>
+            <button class="btn-cancel">取消</button>
+        </div>
+        <div class="shadow"></div>
+    </section>
+
+    <script src="js/require.js" data-main="js/main"></script>
+</body>
+</html>
