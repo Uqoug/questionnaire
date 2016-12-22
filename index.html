@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="style/homepage.css">
 </head>
 <body>
-    <footer>
+    <header>
         <nav>
             <a href="#"><span>问卷管理</span></a>
-            <a href="#"><span>我的问卷</span></a>
+            <a href=""><span>我的问卷</span></a>
         </nav>
-    </footer>
+    </header>
 
     <section id="contain">
         <ul class="paperlist">
@@ -20,11 +20,11 @@
                 <span>时间</span>
                 <span>状态</span>
                 <span>操作</span>
-                <a href="#">+新建问卷</a>
+                <a href="edit.html">+新建问卷</a>
             </li>
             <li class="listitem">
                 <input class="select" type="checkbox">
-                <span>这是我的第一份问卷</span>
+                <span>这是我的第一份问卷1</span>
                 <span>2016-00-00 00:00:00</span>
                 <span>发布中</span>
                 <div class="btn-wraper">
@@ -36,7 +36,7 @@
             </li>
             <li class="listitem">
                 <input class="select" type="checkbox">
-                <span>这是我的第一份问卷</span>
+                <span>这是我的第一份问卷2</span>
                 <span>2016-00-00 00:00:00</span>
                 <span>发布中</span>
                 <div class="btn-wraper">
@@ -48,7 +48,7 @@
             </li>
             <li class="listitem">
                 <input class="select" type="checkbox">
-                <span>这是我的第一份问卷</span>
+                <span>这是我的第一份问卷3</span>
                 <span>2016-00-00 00:00:00</span>
                 <span>发布中</span>
                 <div class="btn-wraper">
@@ -60,15 +60,26 @@
             </li>
         </ul>
         <div class="select-all">
-            <input class="btn-select-all" type="checkbox">
-            <span>全选</span>
+            <input id="btn-select-all" type="checkbox">
+            <label for="btn-select-all">全选</label>
+            <button class="del-all">删除</button>
         </div>
     </section>
 
-    <section class="submitbox">
+    <section class="submitbox1">
         <div class="box">
             <p class="tip">提示</p>
             <p class="submittext">确认要删除问卷吗？</p>
+            <button class="btn-submit">确认</button>
+            <button class="btn-cancel">取消</button>
+        </div>
+        <div class="shadow"></div>
+    </section>
+
+    <section class="submitbox2">
+        <div class="box">
+            <p class="tip">提示</p>
+            <p class="submittext">确认要删除选择的问卷吗？</p>
             <button class="btn-submit">确认</button>
             <button class="btn-cancel">取消</button>
         </div>

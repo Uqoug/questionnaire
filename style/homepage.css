@@ -88,7 +88,8 @@ nav a:nth-of-type(1) {
     flex: 1;
     display: flex;
 }
-.btn-wraper button {
+.btn-wraper button,
+.select-all .del-all {
     margin: 12px 2px;
     background-color: #aaa;
     outline: none;
@@ -102,20 +103,33 @@ nav a:nth-of-type(1) {
     -o-transition: background-color .3s ease;
     transition: background-color .3s ease;
 }
-.btn-wraper button:hover {
+.btn-wraper button:hover,
+.select-all .del-all:hover {
     background-color: #ee7419;
 }
 .select-all {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .select-all span {
+
     font-size: 18px;
+    margin-right: 20px;
 }
+.select-all .del-all {
+    width: 60px;
+    height: 30px;
+    border-radius: 10%;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
 /*submitbox*/
-.submitbox{
+.submitbox1,
+.submitbox2 {
     display: none;
 }
-.submitbox .box {
+.submitbox1 .box,
+.submitbox2 .box {
     background-color: #fff;
     width: 300px;
     height: 180px;
@@ -157,7 +171,8 @@ nav a:nth-of-type(1) {
 .box .btn-submit {
     margin-left: 100px;
 }
-.submitbox .shadow {
+.submitbox1 .shadow,
+.submitbox2 .shadow {
     position: fixed;
     right: 0;
     left: 0;
