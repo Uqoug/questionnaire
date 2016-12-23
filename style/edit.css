@@ -60,6 +60,7 @@ nav a:nth-of-type(1) {
 .addquestion {
     border-bottom: 1px solid black;
     min-height: 125px;
+    cursor: pointer;
 }
 .addquestion .wraper {
     width: 90%;
@@ -70,18 +71,20 @@ nav a:nth-of-type(1) {
 }
 .btn-wraper1 {
     width: 100%;
-    height: 00px;
+    height: 0px;
     margin: 0px auto;
     text-align: center;
     float: left;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.btn-wraper1.active {
+    height: 60px;
 }
 .btn-wraper1 button {
-    display: none;
     margin: 12px 5px;
     width: 80px;
     background-color: #aaa;
@@ -108,6 +111,12 @@ nav a:nth-of-type(1) {
     z-index: 10;
     float: left;
 }
+.q-title {
+    border: none;
+    width: 80%;
+    height: 20px;
+    font-size: 18px;
+}
 .questionbox {
     width: 90%;
     padding: 10px;
@@ -117,18 +126,60 @@ nav a:nth-of-type(1) {
 .questionbox:hover {
     background-color: rgba(238,116,25,.1);
 }
+.questionbox:hover .choosen,
+.questionbox:hover .q-title {
+    background-color: #fef1e8;
+}
+
 .questionbox h3 {
     display: inline-block;
     margin-right: 10px;
 }
-.questionbox input {
+.questionbox .choosen {
+    width: auto;
+    border: none;
     margin-top: 10px;
+}
+.questionbox .choosen:focus {
+    width: 80%;
+}
+.questionbox .del {
+    color: #959595;
+    cursor: pointer;
+    display: none;
+}
+.del.hover {
+    display: inline-block;
 }
 .questionbox .btn-wraper {
     text-align: right;
     margin-top: 10px;
 }
+.questionbox textarea {
+    width: 80%;
+    margin-top: 15px;
+}
 .btn-wraper a {
     text-decoration: none;
     color: #000;
+}
+.btn-wraper2 {
+    margin-top: 20px;
+    margin-right: 120px;
+    text-align: right;
+}
+.btn-wraper2 button {
+    width: 100px;
+    height: 35px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.btn-wraper2 .save {
+    background-color: #aaa;#ee7419
+}
+.btn-wraper2 .publish {
+    background-color: #ee7419;
 }
