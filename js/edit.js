@@ -56,6 +56,37 @@ requirejs(["jquery"], function ($) {
 
 
     $(".q-del").on("click", function(){
-        $(this).parents(".questionbox").parent().remove();
+        $(this).parents(".q-box").remove();
+    });
+    $(".reuse").on("click", function(){
+        $(this).parents(".q-box").clone(true)
+        .insertBefore($(".addquestion"));
+    });
+    $(".up").on("click", function(){
+    	var toplimmit = $(this).parents(".q-box").prev(".q-box").attr("hidden");
+        if (toplimmit == undefined) {
+        	$(this).parents(".q-box").clone(true)
+        	.insertBefore($(this).parents(".q-box").prev(".q-box"));
+        	$(this).parents(".q-box").remove();
+        }
+    });
+    $(".down").on("click", function(){
+    	var bottomlimmit = $(this).parents(".q-box").next(".q-box").attr("class");
+        if (!(bottomlimmit == undefined)) {
+        	$(this).parents(".q-box").clone(true)
+        	.insertAfter($(this).parents(".q-box").next(".q-box"));
+        	$(this).parents(".q-box").remove();
+        }
+    });
+
+
+    $(".publish").on("click", function() {
+        $(".submitbox").addClass("active");
+        $(".btn-cancel").on("click", function() {
+            $(".submitbox").removeClass("active");
+        });
+        $(".btn-submit").on("click", function() {
+            $(".submitbox").removeClass("active");
+        });
     });
 }); 

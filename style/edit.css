@@ -194,3 +194,62 @@ nav a:nth-of-type(1) {
 .btn-wraper2 .publish {
     background-color: #ee7419;
 }
+
+/*submitbox*/
+.submitbox {
+    display: none;
+}
+.submitbox .box {
+    background-color: #fff;
+    width: 300px;
+    height: 180px;
+    position: fixed;
+    margin-left: -150px;
+    left: 50%;
+    margin-top: -100px;
+    top: 50%;
+    box-shadow: 2px 2px 5px rgba(100,100,100,.3);
+    border-radius: 8px;
+    opacity: 1;
+    z-index: 100;
+}
+.box .tip {
+    background-color: #ee7419;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+    font-size: 20px;
+    border-radius: 8px 8px 0px 0px;
+}
+.box .submittext {
+    font-size: 18px;
+    margin: 20px 0px 30px 30px;
+}
+.box button {
+    margin: 0px 5px;
+    background-color: #aaa;
+    outline: none;
+    border: none;
+    width: 80px;
+    height: 30px;
+    color: #fff;
+}
+.box button:hover {
+    background-color: #ee7419;
+}
+.box .btn-submit {
+    margin-left: 100px;
+}
+.submitbox .shadow {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(100,100,100,.2);
+    z-index: 99;
+}
+.active {
+    display: block;
+}
