@@ -9,7 +9,7 @@
 	<header>
 	    <nav>
 	        <a href="#"><span>问卷管理</span></a>
-	        <a href="#"><span>我的问卷</span></a>
+	        <a href="index.html"><span>我的问卷</span></a>
 	    </nav>
 	</header>
 
@@ -18,75 +18,85 @@
 			<input class="title-input" type="text" placeholder="(点击输入标题)">
 		</div>
 
-		<div class="questionbox">
-			<h3>Q1</h3>
-			<input class="q-title" value="单选题">
-			<div class="s-wraper">
-				<input id="q1-s1" type="radio" name="q1">
-				<input class="choosen" value="选项一"><span class="del">删除</span>
-			</div>
-			<div class="s-wraper">
-				<input id="q1-s2" type="radio" name="q1">
-				<input class="choosen" value="选项二"><span class="del">删除</span>
-			</div>
-			<div class="s-wraper">
-				<input id="q1-s3" type="radio" name="q1">
-				<input class="choosen" value="选项三"><span class="del">删除</span>
-			</div>
-			<div class="btn-wraper">
-				<a href="#">上移</a>
-				<a href="#">下移</a>
-				<a href="#">复用</a>
-				<a href="#">删除</a>
+
+		<div class="radio" hidden>
+			<div class="questionbox">
+				<h3>Q1</h3>
+				<input class="q-title" value="单选题">
+				<div class="s-wraper">
+					<input id="q1-s1" type="radio" name="q1">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="s-wraper">
+					<input id="q1-s2" type="radio" name="q1">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="s-wraper">
+					<input id="q1-s3" type="radio" name="q1">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="add-s-btn">+</div>
+				<div class="btn-wraper">
+					<a href="#" class="up">上移</a>
+					<a href="#" class="down">下移</a>
+					<a href="#" class="reuse">复用</a>
+					<a href="#" class="q-del">删除</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="questionbox">
-			<h3>Q2</h3>
-			<input class="q-title" value="多选题">
-			<div class="s-wraper">
-				<input id="q2-s1" type="checkbox">
-				<input class="choosen" value="选项一"><span class="del">删除</span>
-			</div>
-			<div class="s-wraper">
-				<input id="q2-s2" type="checkbox">
-				<input class="choosen" value="选项二"><span class="del">删除</span>
-			</div>
-			<div class="s-wraper">
-				<input id="q2-s3" type="checkbox">
-				<input class="choosen" value="选项三"><span class="del">删除</span>
-			</div>
-			<div class="btn-wraper">
-				<a href="#">上移</a>
-				<a href="#">下移</a>
-				<a href="#">复用</a>
-				<a href="#">删除</a>
+
+		<div class="checkbox" hidden>
+			<div class="questionbox">
+				<h3>Q2</h3>
+				<input class="q-title" value="多选题">
+				<div class="s-wraper">
+					<input id="q2-s1" type="checkbox">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="s-wraper">
+					<input id="q2-s2" type="checkbox">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="s-wraper">
+					<input id="q2-s3" type="checkbox">
+					<input class="choosen" value="选项"><span class="del">删除</span>
+				</div>
+				<div class="add-s-btn">+</div>
+				<div class="btn-wraper">
+					<a href="#" class="up">上移</a>
+					<a href="#" class="down">下移</a>
+					<a href="#" class="reuse">复用</a>
+					<a href="#" class="q-del">删除</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="questionbox">
-			<h3>Q3</h3>
-			<input class="q-title" value="文字题">
-			<textarea name="" rows="6"></textarea>
-			<div class="btn-wraper">
-				<a href="#">上移</a>
-				<a href="#">下移</a>
-				<a href="#">复用</a>
-				<a href="#">删除</a>
+		<div class="textbox" hidden>
+			<div class="questionbox">
+				<h3>Q3</h3>
+				<input class="q-title" value="文字题">
+				<textarea name="" rows="6"></textarea>
+				<div class="btn-wraper">
+					<a href="#" class="up">上移</a>
+					<a href="#" class="down">下移</a>
+					<a href="#" class="reuse">复用</a>
+					<a href="#" class="q-del">删除</a>
+				</div>
 			</div>
 		</div>
+
 
 		<div class="addquestion">
 			<div class="wraper clearfix">
 				<div class="btn-wraper1">
-					<button>单选</button>	
-					<button>多选</button>
-					<button>文本题</button>
+					<button class="add-radio">单选</button>	
+					<button class="add-checkbox">多选</button>
+					<button class="add-textbox">文本题</button>
 				</div>
 				<div class="add-box clearfix">+添加问题</div>
 			</div>
 		</div>
-
 
 		<div class="calendar"></div>
 		<div class="btn-wraper2">

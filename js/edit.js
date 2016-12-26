@@ -25,8 +25,37 @@ requirejs(["jquery"], function ($) {
     	$(this).removeClass("hover");
 	});
 
+
+
+
+    $(".radio .add-s-btn").on("click", function(){
+        $(this).before($(".radio .s-wraper:first").clone(true));
+    });
+    $(".checkbox .add-s-btn").on("click", function(){
+        $(this).before($(".checkbox .s-wraper:first").clone(true));
+    });
 	$(".del").on("click", function() {
 		$(this).parents(".s-wraper").remove();
-		
-	})
+	});
+    
+
+
+    $(".add-radio").on("click", function(){
+        $(".addquestion").before($(".radio:first")
+            .clone(true).removeAttr("hidden"));
+    });
+    $(".add-checkbox").on("click", function(){
+        $(".addquestion").before($(".checkbox:first")
+            .clone(true).removeAttr("hidden"));
+    });
+    $(".add-textbox").on("click", function(){
+        $(".addquestion").before($(".textbox:first")
+            .clone(true).removeAttr("hidden"));
+    });
+
+
+
+    $(".q-del").on("click", function(){
+        $(this).parents(".questionbox").parent().remove();
+    });
 }); 
