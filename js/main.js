@@ -9,4 +9,6 @@ requirejs(["jquery", "delList"], function ($, delList) {
     var del = new delList.delList();
     del.del();
     del.delSelect();
+
+    
 });

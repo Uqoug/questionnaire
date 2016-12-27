@@ -99,9 +99,14 @@ requirejs(["jquery"], function ($) {
         $(".submitbox").addClass("active");
         $(".btn-cancel").on("click", function() {
             $(".submitbox").removeClass("active");
+            $(".btn-cancel").off();
         });
         $(".btn-submit").on("click", function() {
             var storage = window.localStorage;
+            var i = 0;
+            while (storage.getItem("data"+i) != null){
+                i++;
+            };
             var title = $(".title-input").val().trim();
             var date = new Date();
             var Qcontain = $(".q-contain").html();
@@ -111,11 +116,12 @@ requirejs(["jquery"], function ($) {
                 Qcontain: Qcontain
             };
             var d=JSON.stringify(data);
-            storage.setItem("data",d);
-            var json = storage.getItem("data");
+            storage.setItem("data"+i,d);
+            var json = storage.getItem("data"+i);
             var jsonObj = JSON.parse(json);
             console.log(jsonObj);
             $(".submitbox").removeClass("active");
+            $(".btn-submit").off();
         });
     });
 }); 
