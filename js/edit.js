@@ -41,15 +41,15 @@ requirejs(["jquery"], function ($) {
 
 
     $(".add-radio").on("click", function(){
-        $(".addquestion").before($(".radio:first")
+        $(".q-contain").append($(".radio:first")
             .clone(true).removeAttr("hidden"));
     });
     $(".add-checkbox").on("click", function(){
-        $(".addquestion").before($(".checkbox:first")
+        $(".q-contain").append($(".checkbox:first")
             .clone(true).removeAttr("hidden"));
     });
     $(".add-textbox").on("click", function(){
-        $(".addquestion").before($(".textbox:first")
+        $(".q-contain").append($(".textbox:first")
             .clone(true).removeAttr("hidden"));
     });
 
@@ -86,6 +86,19 @@ requirejs(["jquery"], function ($) {
             $(".submitbox").removeClass("active");
         });
         $(".btn-submit").on("click", function() {
+            var storage = window.localStorage;
+            var title = $(".title-input").val();
+            var date = new Date();
+            var Qcontain = $(".q-contain").html();
+            var data = {
+                title: title,
+                date: date,
+                Qcontain: Qcontain
+            };
+            var d=JSON.stringify(data);
+            storage.setItem("data",d);
+            var json=storage.getItem("data");
+            var jsonObj=JSON.parse(json);
             $(".submitbox").removeClass("active");
         });
     });
