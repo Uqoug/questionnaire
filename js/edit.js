@@ -6,6 +6,14 @@ requirejs.config({
 });
 
 requirejs(["jquery"], function ($) {
+	function QnumReset(){
+		var Qnum = $(".q-box:visible .q-num");
+		for (var i = 0; i < Qnum.length; i++){
+			Qnum[i].innerText = 'Q' + (i+1);
+		}
+	}
+
+
 	$(".add-box").on("click", function() {
 		$(".btn-wraper1").toggleClass("active");
 	});
@@ -43,24 +51,29 @@ requirejs(["jquery"], function ($) {
     $(".add-radio").on("click", function(){
         $(".q-contain").append($(".radio:first")
             .clone(true).removeAttr("hidden"));
+        QnumReset();
     });
     $(".add-checkbox").on("click", function(){
         $(".q-contain").append($(".checkbox:first")
             .clone(true).removeAttr("hidden"));
+		QnumReset();
     });
     $(".add-textbox").on("click", function(){
         $(".q-contain").append($(".textbox:first")
             .clone(true).removeAttr("hidden"));
+        QnumReset();
     });
 
 
 
     $(".q-del").on("click", function(){
         $(this).parents(".q-box").remove();
+        QnumReset();
     });
     $(".reuse").on("click", function(){
         $(this).parents(".q-box").clone(true)
         .insertBefore($(".addquestion"));
+        QnumReset();
     });
     $(".up").on("click", function(){
     	var toplimmit = $(this).parents(".q-box").prev(".q-box").attr("hidden");
@@ -69,6 +82,7 @@ requirejs(["jquery"], function ($) {
         	.insertBefore($(this).parents(".q-box").prev(".q-box"));
         	$(this).parents(".q-box").remove();
         }
+        QnumReset();
     });
     $(".down").on("click", function(){
     	var bottomlimmit = $(this).parents(".q-box").next(".q-box").attr("class");
@@ -77,6 +91,7 @@ requirejs(["jquery"], function ($) {
         	.insertAfter($(this).parents(".q-box").next(".q-box"));
         	$(this).parents(".q-box").remove();
         }
+        QnumReset();
     });
 
 
@@ -87,7 +102,7 @@ requirejs(["jquery"], function ($) {
         });
         $(".btn-submit").on("click", function() {
             var storage = window.localStorage;
-            var title = $(".title-input").val();
+            var title = $(".title-input").val().trim();
             var date = new Date();
             var Qcontain = $(".q-contain").html();
             var data = {
@@ -97,8 +112,9 @@ requirejs(["jquery"], function ($) {
             };
             var d=JSON.stringify(data);
             storage.setItem("data",d);
-            var json=storage.getItem("data");
-            var jsonObj=JSON.parse(json);
+            var json = storage.getItem("data");
+            var jsonObj = JSON.parse(json);
+            console.log(jsonObj);
             $(".submitbox").removeClass("active");
         });
     });
