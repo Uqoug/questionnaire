@@ -12,6 +12,12 @@ requirejs(["jquery"], function ($) {
 			Qnum[i].innerText = 'Q' + (i+1);
 		}
 	}
+	function radioName(){
+		var radioname = $(".radio:visible");
+		for (var i = 0; i < radioname.length; i++) {
+			$(".radio:visible:eq("+i+") .radioS").attr('name', 'q' + i);
+		}
+	}
 
 
 	$(".add-box").on("click", function() {
@@ -52,6 +58,7 @@ requirejs(["jquery"], function ($) {
         $(".q-contain").append($(".radio:first")
             .clone(true).removeAttr("hidden"));
         QnumReset();
+        radioName();
     });
     $(".add-checkbox").on("click", function(){
         $(".q-contain").append($(".checkbox:first")
@@ -119,7 +126,7 @@ requirejs(["jquery"], function ($) {
             storage.setItem("data"+i,d);
             var json = storage.getItem("data"+i);
             var jsonObj = JSON.parse(json);
-            console.log(jsonObj);
+            console.log(jsonObj.title);
             $(".submitbox").removeClass("active");
             $(".btn-submit").off();
         });

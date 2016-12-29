@@ -32,7 +32,8 @@ nav a:nth-of-type(1) {
     box-shadow: 0 2px 4px rgba(100,100,100,.1);
     border-radius: 10px;
 }
-.paperlist li {
+.paperlist .listheader,
+.paperlist .listitem {
     height: 50px;
     width: 100%;
     line-height: 40px;
