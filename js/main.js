@@ -5,7 +5,7 @@ requirejs.config({
   }
 });
 
-requirejs(["jquery", "delList"], function ($, delList) {
+requirejs(["jquery", "delList"], function ($, delList){
     var length = 0;
     var storage = window.localStorage;
     while (storage.getItem("data"+length) != null){
@@ -25,7 +25,12 @@ requirejs(["jquery", "delList"], function ($, delList) {
         .replace('datanum', i);
         $(".paperlist").append("<li class='listitem'>"
             + newdata + "</li>");
-    }
+    };
+    $(".edit").on("click", function(){
+        var datanum = $(this).parents(".btn-wraper").next().text();
+        var Url = "reEdit.html" + "?num=" + datanum;
+        window.location.href = Url;
+    });
 
     var del = new delList.delList();
     del.del();
