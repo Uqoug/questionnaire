@@ -12,16 +12,20 @@ requirejs(["jquery", "delList"], function ($, delList) {
         length++;
     };
     for (var i = 0; i < length; i++) {
-        var json = storage.getItem("data"+i);
+        var json = storage.getItem("data" + i);
+        if (json == "") {
+            continue;
+        }
         var jsonObj = JSON.parse(json);
         var newdata = $(".listitem:eq(0)")
         .clone(true)
         .html()
-        .replace('这是我的第一份问卷1', jsonObj.title);
+        .replace('这是我的第一份问卷1', jsonObj.title)
+        .replace('2016-00-00 00:00:00', jsonObj.date)
+        .replace('datanum', i);
         $(".paperlist").append("<li class='listitem'>"
             + newdata + "</li>");
     }
-    console.log(newdata);
 
     var del = new delList.delList();
     del.del();

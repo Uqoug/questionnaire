@@ -5,7 +5,7 @@ requirejs.config({
   }
 });
 
-requirejs(["jquery"], function ($) {
+requirejs(["jquery", "moment"], function ($, moment) {
 	function QnumReset(){
 		var Qnum = $(".q-box:visible .q-num");
 		for (var i = 0; i < Qnum.length; i++){
@@ -107,6 +107,7 @@ requirejs(["jquery"], function ($) {
         $(".btn-cancel").on("click", function() {
             $(".submitbox").removeClass("active");
             $(".btn-cancel").off();
+            $(".btn-submit").off();
         });
         $(".btn-submit").on("click", function() {
             var storage = window.localStorage;
@@ -115,20 +116,22 @@ requirejs(["jquery"], function ($) {
                 i++;
             };
             var title = $(".title-input").val().trim();
-            var date = new Date();
+            var date = moment().format('YYYY-MM-DD HH:mm:ss')
             var Qcontain = $(".q-contain").html();
             var data = {
                 title: title,
                 date: date,
                 Qcontain: Qcontain
             };
-            var d=JSON.stringify(data);
-            storage.setItem("data"+i,d);
+            var d = JSON.stringify(data);
+            storage.setItem("data"+i, d);
             var json = storage.getItem("data"+i);
             var jsonObj = JSON.parse(json);
-            console.log(jsonObj.title);
+            console.log(moment().format('YYYY-MM-DD hh:mm:ss'));
             $(".submitbox").removeClass("active");
             $(".btn-submit").off();
+            $(".btn-cancel").off();
+            window.location.href = "index.html";
         });
     });
 }); 

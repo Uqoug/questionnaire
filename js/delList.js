@@ -7,10 +7,17 @@ define(['jquery'], function ($) {
 			$(".submitbox1").addClass("active");
 			$(".btn-cancel").on("click", function() {
 				$(".submitbox1").removeClass("active");
+				$(".btn-cancel").off();
+				$(".btn-submit").off();
 			});
 			$(".btn-submit").on("click", function() {
+				var datanum = "data" + $el.parents(".btn-wraper").next().text();
+				console.log($el.parents(".btn-wraper").next());
+				window.localStorage.setItem(datanum, "");
 				$el.parents("li").remove();
 				$(".submitbox1").removeClass("active");
+				$(".btn-cancel").off();
+				$(".btn-submit").off();
 			});
 		});
 	};
@@ -48,10 +55,14 @@ define(['jquery'], function ($) {
 		    $(".submitbox2").addClass("active");
 		    $(".btn-cancel").on("click", function() {
 		        $(".submitbox2").removeClass("active");
+		        $(".btn-submit").off();
+		        $(".btn-cancel").off();
 		    });
 		    $(".btn-submit").on("click", function() {
 		        $(".select[value='true']").parents(".listitem").remove();
 		        $(".submitbox2").removeClass("active");
+		        $(".btn-submit").off();
+		        $(".btn-cancel").off();
 		    });
 		});
 	}

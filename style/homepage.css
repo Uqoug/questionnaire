@@ -86,6 +86,7 @@ nav a:nth-of-type(1) {
 }
 .listitem .empty {
     flex: 1;
+    visibility: hidden;
 }
 .btn-wraper {
     display: inline-block;
