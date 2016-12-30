@@ -32,8 +32,7 @@ nav a:nth-of-type(1) {
     box-shadow: 0 2px 4px rgba(100,100,100,.1);
     border-radius: 10px;
 }
-.paperlist .listheader,
-.paperlist .listitem {
+.paperlist li {
     height: 50px;
     width: 100%;
     line-height: 40px;
@@ -41,6 +40,10 @@ nav a:nth-of-type(1) {
     display: flex;
     position: relative;
     border-bottom: 1px solid #aaa;
+}
+.hidden {
+    margin-top: -50px;
+    visibility:hidden;
 }
 .paperlist .listitem:hover {
     background-color: #fcf0e5;
@@ -112,7 +115,6 @@ nav a:nth-of-type(1) {
     margin-top: 15px;
 }
 .select-all span {
-
     font-size: 18px;
     margin-right: 20px;
 }

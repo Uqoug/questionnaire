@@ -6,10 +6,6 @@ requirejs.config({
 });
 
 requirejs(["jquery", "delList"], function ($, delList) {
-    var del = new delList.delList();
-    del.del();
-    del.delSelect();
-
     var length = 0;
     var storage = window.localStorage;
     while (storage.getItem("data"+length) != null){
@@ -18,13 +14,16 @@ requirejs(["jquery", "delList"], function ($, delList) {
     for (var i = 0; i < length; i++) {
         var json = storage.getItem("data"+i);
         var jsonObj = JSON.parse(json);
-        var listitem = document.createElement('li');
-        listitem.setAttribute("class", "listitem");
         var newdata = $(".listitem:eq(0)")
         .clone(true)
         .html()
         .replace('这是我的第一份问卷1', jsonObj.title);
-        var newele = listitem.appendChild(newdata);
+        $(".paperlist").append("<li class='listitem'>"
+            + newdata + "</li>");
     }
-    console.log(listitem);
+    console.log(newdata);
+
+    var del = new delList.delList();
+    del.del();
+    del.delSelect();
 });
