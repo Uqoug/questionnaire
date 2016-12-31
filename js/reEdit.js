@@ -121,11 +121,6 @@ requirejs(["jquery", "moment"], function ($, moment) {
             $(".btn-submit").off();
         });
         $(".btn-submit").on("click", function() {
-            var storage = window.localStorage;
-            var i = 0;
-            while (storage.getItem("data"+i) != null){
-                i++;
-            };
             var title = $(".title-input").val().trim();
             var date = moment().format('YYYY-MM-DD HH:mm:ss')
             var Qcontain = $(".q-contain").html();
@@ -135,10 +130,10 @@ requirejs(["jquery", "moment"], function ($, moment) {
                 Qcontain: Qcontain
             };
             var d = JSON.stringify(data);
-            storage.setItem("data"+i, d);
-            var json = storage.getItem("data"+i);
+            storage.setItem("data" + num, d);
+            var json = storage.getItem("data" + num);
             var jsonObj = JSON.parse(json);
-            $(".submitbox").removeClass("active");
+             $(".submitbox").removeClass("active");
             $(".btn-submit").off();
             $(".btn-cancel").off();
             window.location.href = "index.html";
