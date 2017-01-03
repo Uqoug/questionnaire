@@ -31,6 +31,11 @@ requirejs(["jquery", "delList"], function ($, delList){
         var Url = "reEdit.html" + "?num=" + datanum;
         window.location.href = Url;
     });
+    $(".check").on("click", function(){
+        var datanum = $(this).parents(".btn-wraper").next().text();
+        var Url = "check.html" + "?num=" + datanum;
+        window.location.href = Url;
+    });
 
     var del = new delList.delList();
     del.del();
