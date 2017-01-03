@@ -12,7 +12,6 @@ define(['jquery'], function ($) {
 			});
 			$(".btn-submit").on("click", function() {
 				var datanum = "data" + $el.parents(".btn-wraper").next().text();
-				console.log($el.parents(".btn-wraper").next());
 				window.localStorage.setItem(datanum, "");
 				$el.parents("li").remove();
 				$(".submitbox1").removeClass("active");

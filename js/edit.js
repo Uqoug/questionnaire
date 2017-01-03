@@ -118,6 +118,18 @@ requirejs(["jquery", "moment"], function ($, moment) {
             var title = $(".title-input").val().trim();
             var date = moment().format('YYYY-MM-DD HH:mm:ss')
             var Qcontain = $(".q-contain").html();
+            var question = function(){
+                var question = {};
+                for (var i = 0; i < $(".q-box:visible").length; i++) {
+                    var d = {};
+                    var Qnum = $(".q-box:eq("+i+") .q-num").text();
+                    var Qtitle = $(".q-box:eq("+i+") .q-title").val();
+                    d[Qnum] = Qtitle;
+                    $.extend(question, d);
+                };
+                return question;
+            };
+            console.log(question());
             var data = {
                 title: title,
                 date: date,
@@ -127,11 +139,9 @@ requirejs(["jquery", "moment"], function ($, moment) {
             storage.setItem("data"+i, d);
             var json = storage.getItem("data"+i);
             var jsonObj = JSON.parse(json);
-            console.log(moment().format('YYYY-MM-DD hh:mm:ss'));
             $(".submitbox").removeClass("active");
             $(".btn-submit").off();
             $(".btn-cancel").off();
-            window.location.href = "index.html";
         });
     });
 }); 
