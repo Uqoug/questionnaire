@@ -122,10 +122,14 @@ requirejs(["jquery", "moment"], function ($, moment) {
                 var question = {};
                 for (var i = 0; i < $(".q-box:visible").length; i++) {
                     var d = {};
+                    var e = {};
+                    var type = $(".q-box:visible:eq("+i+")")
+                               .attr('class')
+                               .replace("q-box ", "");
                     var Qnum = $(".q-box:visible:eq("+i+") .q-num").text();
                     var Qtitle = $(".q-box:visible:eq("+i+") .q-title").val();
                     var selection = $(".q-box:visible:eq("+i+") .s-wraper");
-                    var e = {};
+                    e.type = type;
                     for (var j = 0; j < selection.length; j++) {
                         var Svalue = $(".q-box:visible:eq("+i+") .choosen:eq("+j+")").val();
                         e["s" + (j+1)] = Svalue;
@@ -146,6 +150,7 @@ requirejs(["jquery", "moment"], function ($, moment) {
             $(".submitbox").removeClass("active");
             $(".btn-submit").off();
             $(".btn-cancel").off();
+            window.location.href = "index.html";
         });
     });
 }); 

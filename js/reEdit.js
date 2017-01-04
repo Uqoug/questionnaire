@@ -124,16 +124,36 @@ requirejs(["jquery", "moment"], function ($, moment) {
             var title = $(".title-input").val().trim();
             var date = moment().format('YYYY-MM-DD HH:mm:ss')
             var Qcontain = $(".q-contain").html();
+            var question = function(){
+                var question = {};
+                for (var i = 0; i < $(".q-box:visible").length; i++) {
+                    var d = {};
+                    var e = {};
+                    var type = $(".q-box:visible:eq("+i+")")
+                               .attr('class')
+                               .replace("q-box ", "");
+                    var Qnum = $(".q-box:visible:eq("+i+") .q-num").text();
+                    var Qtitle = $(".q-box:visible:eq("+i+") .q-title").val();
+                    var selection = $(".q-box:visible:eq("+i+") .s-wraper");
+                    e.type = type;
+                    for (var j = 0; j < selection.length; j++) {
+                        var Svalue = $(".q-box:visible:eq("+i+") .choosen:eq("+j+")").val();
+                        e["s" + (j+1)] = Svalue;
+                    };
+                    d[Qnum] = {title : Qtitle, choosen: e};
+                    $.extend(question, d);
+                };
+                return question;
+            };
             var data = {
                 title: title,
                 date: date,
-                Qcontain: Qcontain
+                Qcontain: Qcontain,
+                question: question()
             };
             var d = JSON.stringify(data);
             storage.setItem("data" + num, d);
-            var json = storage.getItem("data" + num);
-            var jsonObj = JSON.parse(json);
-             $(".submitbox").removeClass("active");
+            $(".submitbox").removeClass("active");
             $(".btn-submit").off();
             $(".btn-cancel").off();
             window.location.href = "index.html";

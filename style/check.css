@@ -62,21 +62,36 @@ nav a:nth-of-type(1) {
     display: flex;
 }
 .q-num {
-    flex: 1;
+    flex: .7;
 }
 .q-title {
+    margin-left: 10px;
     flex: 20;
 }
 .datatitle {
     flex: 20;
 }
-.s-name p {
-    margin: 8px 34px;
+/*barbox*/
+.barbox {
+    display: flex;
 }
-
-
-
-
+.bar {
+    display: inline-block;
+    width: 500px;
+    height: 20px;
+    background-color: #ee7419;
+    flex: 1;
+    margin-top: 3px;
+    text-align: center;
+}
+.percent {
+    color: #fff;
+    font-family: "微软雅黑";
+}
+.s-name {
+    margin-left: 32px;
+    flex: 1;
+}
 
 .back {
     width: 80px;
