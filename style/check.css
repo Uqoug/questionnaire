@@ -75,13 +75,19 @@ nav a:nth-of-type(1) {
 .barbox {
     display: flex;
 }
-.bar {
+.barbox:nth-of-type(1) {
+    visibility: hidden;
+    margin-top: -20px;
+}
+.bar-wraper {
     display: inline-block;
-    width: 500px;
     height: 20px;
-    background-color: #ee7419;
     flex: 1;
     margin-top: 3px;
+}
+.bar {
+    width: 100%;
+    background-color: #ee7419;
     text-align: center;
 }
 .percent {
