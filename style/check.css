@@ -53,7 +53,10 @@ nav a:nth-of-type(1) {
     border-bottom: 1px solid #000;
     min-height: 200px;
 }
-.databox {
+/*radiobox*/
+.radiobox,
+.checkbox,
+.textbox {
     border: 1px solid #aaa;
     margin: 20px;
     padding: 10px;
@@ -71,37 +74,65 @@ nav a:nth-of-type(1) {
 .datatitle {
     flex: 20;
 }
-/*barbox*/
-.barbox {
+.radiobox .barbox,
+.textbox .barbox {
     display: flex;
 }
-.barbox:nth-of-type(1) {
+.radiobox .barbox:nth-of-type(1),
+.textbox .barbox:nth-of-type(1) {
     visibility: hidden;
     margin-top: -20px;
 }
-.bar-wraper {
+.radiobox .bar-wraper,
+.textbox .bar-wraper {
     height: 20px;
     flex: 1;
     margin-top: 3px;
 }
-.bar:nth-of-type(1) {
+.radiobox .bar:nth-of-type(1),
+.textbox .bar:nth-of-type(1) {
     margin-top: 2px;
 }
-.bar {
+.radiobox .bar,
+.textbox .bar {
     display: inline-block;
     width: 100%;
     height: 20px;
     background-color: #ee7419;
     vertical-align: top;
 }
-.percent {
+.radiobox .percent,
+.textbox .percent {
     color: #aaa;
     font-family: "微软雅黑";
 }
-.s-name {
+.radiobox .s-name,
+.textbox .s-name {
     margin-left: 32px;
     flex: 1;
 }
+/*piebox*/
+.piebox {
+    display: flex;
+}
+.piebox .s-name {
+    list-style: none;
+}
+.piebox .s-name:nth-of-type(1) {
+    visibility: hidden;
+}
+.piebox .s-namelist {
+    flex: 1;
+}
+.piebox .pie-wraper {
+    flex: 1;
+}
+.piebox .pie {
+    width: 200px;
+    height: 200px;
+}
+
+
 
 .back {
     width: 80px;
