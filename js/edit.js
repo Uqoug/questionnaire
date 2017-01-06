@@ -11,13 +11,13 @@ requirejs(["jquery", "moment"], function ($, moment) {
 		for (var i = 0; i < Qnum.length; i++){
 			Qnum[i].innerText = 'Q' + (i+1);
 		}
-	}
+	};
 	function radioName(){
 		var radioname = $(".radio:visible");
 		for (var i = 0; i < radioname.length; i++) {
 			$(".radio:visible:eq("+i+") .radioS").attr('name', 'q' + i);
 		}
-	}
+	};
 
 
 	$(".add-box").on("click", function() {
@@ -103,6 +103,9 @@ requirejs(["jquery", "moment"], function ($, moment) {
 
 
     $(".publish").on("click", function() {
+        $(".q-title:visible, .choosen:visible").each(function() {
+            $(this).attr("value", this.value);
+        });
         $(".submitbox").addClass("active");
         $(".btn-cancel").on("click", function() {
             $(".submitbox").removeClass("active");
@@ -129,12 +132,11 @@ requirejs(["jquery", "moment"], function ($, moment) {
                     var Qnum = $(".q-box:visible:eq("+i+") .q-num").text();
                     var Qtitle = $(".q-box:visible:eq("+i+") .q-title").val();
                     var selection = $(".q-box:visible:eq("+i+") .s-wraper");
-                    e.type = type;
                     for (var j = 0; j < selection.length; j++) {
                         var Svalue = $(".q-box:visible:eq("+i+") .choosen:eq("+j+")").val();
                         e["s" + (j+1)] = Svalue;
                     };
-                    d[Qnum] = {title : Qtitle, choosen: e};
+                    d[Qnum] = {title : Qtitle, choosen: e,type: type};
                     $.extend(question, d);
                 };
                 return question;
