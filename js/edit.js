@@ -80,6 +80,9 @@ requirejs(["jquery", "moment"], function ($, moment) {
     $(".reuse").on("click", function(){
         $(this).parents(".q-box").clone(true)
         .appendTo($(".q-contain"));
+        var lastRQ = $(".radio:visible").length - 1;
+        $(".radio:visible:eq("+lastRQ+") .radioS")
+        .attr("name", "q"+lastRQ);
         QnumReset();
     });
     $(".up").on("click", function(){

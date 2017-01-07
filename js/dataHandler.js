@@ -15,15 +15,15 @@ define(['jquery', 'echarts'], function ($, echarts) {
     dataHandler.prototype.radio = function(Qnum) {
         $(".radiobox:hidden").clone()
         .removeAttr('hidden').appendTo($(".context"));
-        $(".radiobox:visible:eq("+Qnum+") .q-title")
-        .text(ddata.question["Q" + (Qnum + 1)]["title"]);
         var question = ddata.question["Q" + (Qnum + 1)];
-        var $barbox = $(".radiobox:visible:eq("+Qnum+") .barbox");
-        var $Sname = $(".radiobox:visible:eq("+Qnum+") .s-name");
+        var lastRd = $(".radiobox:visible").length - 1;
+        var $barbox = $(".radiobox:visible:eq("+lastRd+") .barbox");
+        var $Sname = $(".radiobox:visible:eq("+lastRd+") .s-name");
         var Sum = 0;
         var num = [];
         var percent = '';
-        var lastRd = $(".radiobox:visible").length - 1;
+        $(".radiobox:visible:eq("+lastRd+") .q-title")
+        .text(ddata.question["Q" + (Qnum + 1)]["title"]);
         for (var a = 1; a <= objLength(question["choosen"]); a++) {
             num[a] = getRandom();
             Sum += num[a];
