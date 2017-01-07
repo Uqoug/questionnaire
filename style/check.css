@@ -62,6 +62,7 @@ nav a:nth-of-type(1) {
     padding: 10px;
 }
 .q-titlebox {
+    font-weight: bold;
     display: flex;
 }
 .q-num {
@@ -78,8 +79,7 @@ nav a:nth-of-type(1) {
 .textbox .barbox {
     display: flex;
 }
-.radiobox .barbox:nth-of-type(1),
-.textbox .barbox:nth-of-type(1) {
+.radiobox .barbox:nth-of-type(1) {
     visibility: hidden;
     margin-top: -20px;
 }
@@ -100,6 +100,7 @@ nav a:nth-of-type(1) {
     height: 20px;
     background-color: #ee7419;
     vertical-align: top;
+    max-width: 90%;    
 }
 .radiobox .percent,
 .textbox .percent {

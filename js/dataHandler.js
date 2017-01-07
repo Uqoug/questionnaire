@@ -23,6 +23,7 @@ define(['jquery', 'echarts'], function ($, echarts) {
         var Sum = 0;
         var num = [];
         var percent = '';
+        var lastRd = $(".radiobox:visible").length - 1;
         for (var a = 1; a <= objLength(question["choosen"]); a++) {
             num[a] = getRandom();
             Sum += num[a];
@@ -30,11 +31,11 @@ define(['jquery', 'echarts'], function ($, echarts) {
         for (var i = 1; i <= objLength(question["choosen"]); i++) {
             percent = Math.floor(num[i] / Sum *100) + "%";
             $Sname.text(question["choosen"]['s' + i]);
-            $(".radiobox:visible:eq("+Qnum+") .bar:eq(0)")
+            $(".radiobox:visible:eq("+lastRd+") .bar:eq(0)")
             .css("width", percent);
-            $(".radiobox:visible:eq("+Qnum+") .percent:eq(0)")
+            $(".radiobox:visible:eq("+lastRd+") .percent:eq(0)")
             .text(percent);
-            $barbox.clone().appendTo($(".radiobox:visible:eq("+Qnum+")"));
+            $barbox.clone().appendTo($(".radiobox:visible:eq("+lastRd+")"));
         };
     };
     
@@ -43,18 +44,19 @@ define(['jquery', 'echarts'], function ($, echarts) {
         .appendTo($(".context"));
         var cbData = [];
         var question = ddata.question["Q" + (Qnum + 1)];
+        var lastCb = $(".checkbox:visible").length;
+        $(".checkbox:visible:eq("+(lastCb-1)+") .q-title")
+        .text(question["title"]);
         for (var i = 0; i < objLength(question.choosen); i++) {
             var sData = {value: getRandom(),
                         name: question.choosen["s" + (i + 1)]};
             cbData.push(sData);
-            $(".checkbox:visible:eq(0) .q-title")
-            .text(ddata.question["Q2"]["title"]);
-            $(".checkbox:visible .s-name:eq(0)")
-            .clone().appendTo(".s-namelist");
-            $(".checkbox:visible .s-name:eq("+i+")")
+            $(".checkbox:visible .s-name:eq(0)").clone()
+            .appendTo(".checkbox:visible:eq("+(lastCb-1)+") .s-namelist");
+            $(".checkbox:visible:eq("+(lastCb-1)+") .s-name:eq("+(i+1)+")")
             .text(question.choosen["s" + (i + 1)]);
         };
-        var lastCb = $(".checkbox:visible").length;
+        
         var myChart = echarts.init($(".pie").get(lastCb));
             var option = {
                 tooltip: {
@@ -95,7 +97,19 @@ define(['jquery', 'echarts'], function ($, echarts) {
         myChart.setOption(option);
     };
 
+
+    dataHandler.prototype.textbox = function(Qnum) {
+        var percent = getRandom() + "%";
+        var lastTb = $(".textbox:visible").length;
+        $(".textbox:hidden").clone()
+        .removeAttr("hidden").appendTo($(".context"));
+        $(".textbox:visible:eq("+lastTb+") .q-title")
+        .text(ddata.question["Q" + Qnum]["title"])
+        $(".textbox:visible:eq("+lastTb+") .bar").css("width", percent);
+        $(".textbox:visible:eq("+lastTb+") .percent").text(percent);
+    };
     return {
         dataHandler: dataHandler
     };
 })
+

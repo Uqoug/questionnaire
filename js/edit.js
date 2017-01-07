@@ -79,7 +79,7 @@ requirejs(["jquery", "moment"], function ($, moment) {
     });
     $(".reuse").on("click", function(){
         $(this).parents(".q-box").clone(true)
-        .insertBefore($(".addquestion"));
+        .appendTo($(".q-contain"));
         QnumReset();
     });
     $(".up").on("click", function(){

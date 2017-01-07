@@ -32,8 +32,19 @@ function ($, dataHandler, echarts){
         }
         else if (ddata.question["Q" + i]["type"] == "checkbox") {
             handler.checkbox(i - 1);
+        }
+        else if (ddata.question["Q" + i]["type"] == "textbox") {
+            handler.textbox(i);
         };
     };
 
-    
+    $(".back button").on("click", function() {
+        window.location.href = "index.html";
+    });
+    !function QnumReset(){
+        var Qnum = $(".q-titlebox:visible .q-num");
+        for (var i = 0; i < Qnum.length; i++){
+            Qnum[i].innerText = 'Q' + (i+1);
+        }
+    }();
 });
