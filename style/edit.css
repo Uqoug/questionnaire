@@ -127,7 +127,8 @@ nav a:nth-of-type(1) {
     background-color: rgba(238,116,25,.1);
 }
 .questionbox:hover .choosen,
-.questionbox:hover .q-title {
+.questionbox:hover .q-title,
+.questionbox:hover .btn-wraper button {
     background-color: #fef1e8;
 }
 
@@ -170,9 +171,18 @@ nav a:nth-of-type(1) {
 .add-s-btn:hover {
     opacity: 1;
 }
-.btn-wraper a {
-    text-decoration: none;
-    color: #000;
+.btn-wraper button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: color .3s ease;
+    -moz-transition: color .3s ease;
+    -ms-transition: color .3s ease;
+    -o-transition: color .3s ease;
+    transition: color .3s ease;
+}
+.btn-wraper button:hover {
+    color: #ee7419;
 }
 .btn-wraper2 {
     margin-top: 20px;
